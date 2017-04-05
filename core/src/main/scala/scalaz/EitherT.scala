@@ -13,7 +13,7 @@ import Liskov.<~<
  * EitherT(x).map(1+).run // Some(\/-(2))
  * }}}
  * */
-final case class EitherT[F[_], A, B](run: F[A \/ B]) {
+final case class EitherT[F[_], A, B](run: F[A \/ B]) extends AnyVal {
   import OptionT._
 
   final class Switching_\/[X](r: => X) {
