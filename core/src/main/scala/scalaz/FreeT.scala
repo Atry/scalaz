@@ -60,7 +60,7 @@ object FreeT extends FreeTInstances {
     }
 }
 
-sealed abstract class FreeT[S[_], M[_], A] {
+sealed abstract class FreeT[S[_], M[_], +A] {
   final def map[B](f: A => B)(implicit M: Applicative[M]): FreeT[S, M, B] =
     flatMap(a => point(f(a)))
 
